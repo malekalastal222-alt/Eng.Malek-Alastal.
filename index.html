@@ -2,85 +2,276 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>Course XX</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مشروع دورة جوجل المتميز</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
-        
-        /* Header */
-        header { background-color: #002147; color: white; padding: 20px; text-align: center; border-bottom: 5px solid #ffcc00; }
-        
-        /* Navigation */
-        nav { background: #333; padding: 10px; text-align: center; }
-        nav a { color: white; margin: 0 15px; text-decoration: none; transition: 0.3s; }
-        nav a:hover { color: #ffcc00; font-weight: bold; } /* الـ Hover المطلوب */
+        :root {
+            --primary-color: #002147;
+            --secondary-color: #ffcc00;
+            --accent-color: #4285F4; /* لون جوجل الأزرق */
+            --bg-light: #f8f9fa;
+            --text-dark: #2c3e50;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Header بتصميم عصري */
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #003a7d 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* Navigation فخم */
+        nav {
+            background: white;
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        nav a {
+            color: var(--primary-color);
+            margin: 0 20px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            right: 0;
+            background-color: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Containers */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+            border-top: 5px solid var(--secondary-color);
+        }
 
         /* About Section */
-        .about { padding: 20px; font-family: "Arial", sans-serif; color: #444; }
+        .about h2 {
+            color: var(--primary-color);
+            border-right: 5px solid var(--accent-color);
+            padding-right: 15px;
+        }
 
         /* Image Section */
-        .img-container { text-align: center; padding: 20px; }
-        img { width: 400px; border: 3px solid #002147; border-radius: 10px; }
+        .img-container img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 20px;
+            transition: transform 0.5s ease;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .img-container img:hover {
+            transform: scale(1.03);
+        }
 
         /* Table */
-        table { width: 80%; margin: 20px auto; border-collapse: collapse; text-align: center; background: white; }
-        table, th, td { border: 1px solid #ddd; }
-        th { background-color: #002147; color: white; padding: 10px; }
-        td { padding: 10px; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px;
+            font-weight: 500;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            background: white;
+        }
+
+        tr:hover td {
+            background-color: #f1f8ff;
+        }
 
         /* Form */
-        .reg-form { width: 50%; margin: 20px auto; background: white; padding: 20px; border-radius: 8px; }
-        input { width: 90%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px; }
-        button { background-color: #002147; color: white; padding: 10px 20px; border: none; cursor: pointer; }
+        .reg-form input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box; /* لضمان عدم خروج الإدخال عن الحاوية */
+            transition: border 0.3s;
+        }
+
+        .reg-form input:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 8px rgba(66, 133, 244, 0.2);
+        }
+
+        button {
+            background: linear-gradient(to left, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
 
         /* Footer */
-        footer { background: #222; color: #ddd; text-align: center; padding: 15px; margin-top: 20px; }
+        footer {
+            background: #1a1a1a;
+            color: #bbb;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+        }
+
+        footer strong {
+            color: white;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate {
+            animation: fadeInUp 0.8s ease forwards;
+        }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>دورة تدريب جوجل XX</h1>
+    <div class="animate">
+        <h1>أكاديمية مهارات جوجل المتقدمة</h1>
+        <p>بوابتك لاحتراف التقنية الحديثة</p>
+    </div>
 </header>
 
 <nav>
+    <a href="#">الرئيسية</a>
     <a href="https://youtube.com/1">دورة HTML</a>
     <a href="https://youtube.com/2">دورة CSS</a>
     <a href="https://youtube.com/3">دورة JS</a>
 </nav>
 
-<section class="about">
-    <h2>عن الدورة</h2>
-    <p>هذه الدورة تهدف إلى تعليم مهارات جوجل الأساسية والبرمجة للمبتدئين.</p>
-</section>
+<div class="container">
+    
+    <section class="card about animate">
+        <h2>عن الدورة</h2>
+        <p>انضم إلينا في رحلة تعليمية فريدة مصممة لتنقلك من الصفر إلى الاحتراف في أدوات جوجل البرمجية. نركز على التطبيق العملي وبناء مشاريع حقيقية تخدم سوق العمل.</p>
+    </section>
 
-<div class="img-container">
-    <img src="https://via.placeholder.com/400" alt="Course Image">
+    <div class="img-container animate" style="text-align: center; margin-bottom: 40px;">
+        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Learning">
+    </div>
+
+    <section class="card animate">
+        <h2>تفاصيل المنهج</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>اسم الدورة</th>
+                    <th>عدد الساعات</th>
+                    <th>المستوى</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Google Cloud Tools</td>
+                    <td>30 ساعة</td>
+                    <td><span style="color: #27ae60; font-weight: bold;">Advanced</span></td>
+                </tr>
+                <tr>
+                    <td>Web Development</td>
+                    <td>45 ساعة</td>
+                    <td><span style="color: #f39c12; font-weight: bold;">Intermediate</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="card reg-form animate">
+        <h2 style="text-align: center;">سجل بياناتك الآن</h2>
+        <p style="text-align: center; color: #666;">سنتواصل معك فور بدء الدورة القادمة</p>
+        <form>
+            <input type="text" placeholder="الاسم الكامل" required>
+            <input type="email" placeholder="البريد الإلكتروني" required>
+            <input type="number" placeholder="العمر">
+            <button type="submit">تأكيد التسجيل</button>
+        </form>
+    </section>
+
 </div>
 
-<table>
-    <tr>
-        <th>اسم الدورة</th>
-        <th>عدد الساعات</th>
-        <th>المستوى</th>
-    </tr>
-    <tr>
-        <td>Google Tools</td>
-        <td>30</td>
-        <td>Advanced</td>
-    </tr>
-</table>
-
-<section class="reg-form">
-    <h3>سجل الآن</h3>
-    <input type="text" placeholder="الاسم الكامل">
-    <input type="email" placeholder="البريد الإلكتروني">
-    <input type="number" placeholder="العمر">
-    <button type="submit">إرسال</button>
-</section>
-
 <footer>
-    <p>اسم الطالب: [ضع اسمك هنا]</p>
-    <p>الرقم الجامعي: [ضع رقمك هنا]</p>
+    <p><strong>تم التطوير بواسطة:</strong> [اسمك الثلاثي]</p>
+    <p><strong>الرقم الجامعي:</strong> [20240001]</p>
+    <p style="font-size: 0.8rem; margin-top: 20px;">© 2026 جميع الحقوق محفوظة لمشروع التخرج</p>
 </footer>
 
 </body>
