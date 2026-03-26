@@ -1,226 +1,431 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>Course 40</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eng. Malek Alastal - Engineering Training Center</title>
     <style>
-        /* Body */
+        /* --- 1. إعدادات المتغيرات والألوان الفخمة --- */
+        :root {
+            --primary-bg: #00152e;     /* أزرق داكن ملكي للخلفيات الرئيسية */
+            --secondary-bg: #fff;      /* أبيض للمحتوى */
+            --accent-gold: #ffcc00;    /* ذهبي للتفاصيل الفخمة والأنميشن */
+            --text-dark: #333;
+            --text-light: #eee;
+            --text-gold: #ffdb4d;
+            --shadow-card: 0 10px 30px rgba(0,0,0,0.1);
+            --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* --- 2. إعدادات الجسم (Body) والخطوط --- */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f4f7f6; /* خلفية ناعمة للجسم */
+            color: var(--text-dark);
+            overflow-x: hidden; /* لمنع التمرير الأفقي */
         }
 
-        /* Header */
+        /* --- 3. Header & Navigation (المطلب: أزرق داكن، أفقي، Hover) --- */
         header {
-            background-color: #003366; /* Dark blue background */
-            color: #ffffff;
-            padding: 20px;
-            text-align: center;
+            background-color: var(--primary-bg);
+            color: white;
+            padding: 20px 0;
+            position: sticky; /* يلتصق بالأعلى */
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
         }
 
-        header h1 {
-            color: #1e90ff; /* Dark blue title */
-            margin: 0;
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            letter-spacing: 1px;
         }
-
-        /* Navigation Menu */
-        nav {
-            background-color: #0055aa;
-            overflow: hidden;
-        }
+        .logo span { color: var(--accent-gold); }
 
         nav ul {
-            list-style-type: none;
+            list-style: none;
             margin: 0;
             padding: 0;
-            text-align: center;
+            display: flex; /* ترتيب أفقي */
         }
-
-        nav ul li {
-            display: inline-block;
-            margin: 0 15px;
-        }
-
+        nav ul li { margin: 0 15px; }
         nav ul li a {
+            color: var(--text-light);
             text-decoration: none;
-            color: white;
             font-weight: bold;
-            padding: 10px 15px;
-            transition: background-color 0.3s, color 0.3s;
+            font-size: 1.1rem;
+            padding: 8px 15px;
+            transition: var(--transition-smooth);
+            position: relative;
         }
-
-        nav ul li a:hover {
-            background-color: #ffcc00;
-            color: #000;
-            border-radius: 5px;
+        
+        /* تأثير Hover فخم وأسطوري (أنميشن خط سفلي) */
+        nav ul li a:hover { color: var(--accent-gold); }
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent-gold);
+            transition: var(--transition-smooth);
         }
+        nav ul li a:hover::after { width: 100%; }
 
-        /* About Section */
-        section.about {
-            padding: 20px;
-            color: #333333;
-            text-align: justify;
+        /* --- 4. Hero Section (أول صفحة - نبذة وصورتك) --- */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-bg) 0%, #003366 100%);
+            color: white;
+            padding: 100px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: right;
+            border-bottom: 5px solid var(--accent-gold);
         }
-
-        /* Image Section */
-        section.image {
-            padding: 20px;
-            text-align: center;
-        }
-
-        section.image img {
-            width: 300px;
-            border: 3px solid #003366;
-            border-radius: 10px;
-        }
-
-        /* Table Section */
-        section.table {
-            padding: 20px;
-            text-align: center;
-        }
-
-        table {
-            width: 80%;
+        
+        .hero-container {
+            max-width: 1200px;
             margin: auto;
-            border-collapse: collapse;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
         }
 
-        table, th, td {
-            border: 2px solid #003366;
+        .hero-text h1 { font-size: 3rem; margin-top: 0; color: white; }
+        .hero-text h1 span { color: var(--accent-gold); }
+        .hero-text p {
+            font-family: Arial, sans-serif; /* المطلب: خط Arial */
+            font-size: 1.3rem;
+            color: #ccc; /* لون مختلف - للمطلب */
+            line-height: 1.8;
+            margin-bottom: 30px;
         }
 
-        th {
-            background-color: #1e90ff;
-            color: white;
-            padding: 10px;
+        .hero-image { text-align: center; }
+        .hero-image img {
+            width: 100%;
+            max-width: 450px; /* تحديد عرض - للمطلب */
+            height: auto;
+            border: 10px solid white; /* Border حول الصورة - للمطلب */
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            transition: var(--transition-smooth);
         }
+        .hero-image img:hover { transform: translateY(-10px) scale(1.02); }
 
-        td {
-            padding: 10px;
+        /* --- 5. Courses Section (نظام التابات المتعددة الذكي) --- */
+        .courses-section {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
         }
-
-        td, th {
+        
+        .section-title {
             text-align: center;
+            color: var(--primary-bg);
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-gold);
+            bottom: -10px;
+            right: 0;
         }
 
-        /* Registration Form */
-        section.form {
-            padding: 20px;
-            text-align: center;
+        /* أزرار التحويل بين الكورسات */
+        .tabs-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            gap: 20px;
         }
-
-        section.form input[type="text"],
-        section.form input[type="email"],
-        section.form input[type="number"] {
-            padding: 10px;
-            margin: 10px 0;
-            width: 300px;
-            border: 2px solid #003366;
-            border-radius: 5px;
-        }
-
-        section.form input[type="submit"] {
-            padding: 10px 20px;
-            background-color: #1e90ff;
+        .tab-btn {
+            background-color: var(--primary-bg);
             color: white;
-            border: none;
-            border-radius: 5px;
+            border: 2px solid var(--primary-bg);
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 30px;
             cursor: pointer;
-            font-size: 16px;
+            transition: var(--transition-smooth);
+            box-shadow: var(--shadow-card);
+        }
+        .tab-btn:hover {
+            background-color: var(--secondary-bg);
+            color: var(--primary-bg);
+            transform: translateY(-3px);
+        }
+        /* الزر النشط */
+        .tab-btn.active {
+            background-color: var(--accent-gold);
+            color: var(--primary-bg);
+            border-color: var(--accent-gold);
         }
 
-        section.form input[type="submit"]:hover {
+        /* محتوى الكورسات (مخفي افتراضياً) */
+        .course-content {
+            display: none; /* مخفي */
+            background: white;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: var(--shadow-card);
+            opacity: 0; /* للأنميشن */
+            transform: translateY(20px); /* للأنميشن */
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        
+        /* محتوى الكورس النشط */
+        .course-content.active {
+            display: block;
+            opacity: 1; /* أنميشن السلاسة */
+            transform: translateY(0);
+        }
+
+        .course-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 20px;
+        }
+        .course-header h3 { font-size: 2rem; color: var(--primary-bg); margin: 0; }
+        .course-meta { font-size: 1.1rem; color: #666; font-weight: bold; }
+        .course-meta span { color: var(--primary-bg); }
+
+        .course-body p { font-size: 1.1rem; color: #555; line-height: 1.8; }
+        .course-features { list-style: none; padding: 0; margin: 20px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .course-features li { background: #f9f9f9; padding: 10px; border-radius: 5px; border-right: 3px solid var(--accent-gold); }
+
+        /* --- 6. Registration Form (فخم وسلس) --- */
+        .registration-section {
+            background-color: white;
+            max-width: 600px;
+            margin: 100px auto;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+            border-top: 5px solid var(--accent-gold);
+        }
+        .registration-section h3 { text-align: center; color: var(--primary-bg); font-size: 2rem; margin-bottom: 40px; }
+        
+        .form-group { margin-bottom: 20px; }
+        input {
+            width: 100%;
+            padding: 18px; /* المطلب */
+            margin: 10px 0; /* المطلب */
+            border: 1px solid #ddd; /* المطلب */
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 1.1rem;
+            transition: var(--transition-smooth);
+        }
+        input:focus {
+            border-color: var(--primary-bg);
+            outline: none;
+            box-shadow: 0 0 10px rgba(0,21,46,0.1);
+            transform: scale(1.01); /* أنميشن سلس عند التركيز */
+        }
+        
+        button.submit-btn {
+            width: 100%;
+            padding: 20px;
+            background-color: var(--primary-bg); /* لون مميز - للمطلب */
+            color: white; /* نص أبيض - للمطلب */
+            border: none;
+            border-radius: 8px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            margin-top: 15px;
+        }
+        button.submit-btn:hover {
             background-color: #003366;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
-        /* Footer */
+        /* --- 7. Footer (داكن، فخم، اسم ورقم) --- */
         footer {
-            background-color: #003366;
-            color: #f2f2f2;
+            background-color: #0d0d0d; /* خلفية داكنة - للمطلب */
+            color: #999; /* نص فاتح - للمطلب */
             text-align: center;
-            padding: 15px;
+            padding: 60px 20px;
+            margin-top: auto;
+            border-top: 4px solid var(--primary-bg);
         }
+        footer p { margin: 10px 0; font-size: 1.1rem; }
+        footer .eng-title { color: white; font-weight: bold; font-size: 1.4rem; }
+        footer .eng-id { color: var(--accent-gold); font-weight: bold; }
+
+        /* أنميشن الدخول للأقسام (عند تحميل الصفحة) */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-text { animation: fadeInDown 1s ease-out; }
+        .hero-image { animation: fadeInDown 1.2s ease-out; }
+
     </style>
 </head>
 <body>
 
-    <!-- Header -->
     <header>
-        <h1>Course 40</h1>
+        <div class="nav-container">
+            <div class="logo">مركز <span>المهندس مالك</span> للتدريب</div>
+            <nav>
+                <ul>
+                    <li><a href="#hero">الرئيسية</a></li>
+                    <li><a href="#courses">الدورات المتاحة</a></li>
+                    <li><a href="#register">التسجيل</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <!-- Navigation Menu -->
-    <nav>
-        <ul>
-            <li><a href="https://www.youtube.com/watch?v=example1" target="_blank">Course 1</a></li>
-            <li><a href="https://www.youtube.com/watch?v=example2" target="_blank">Course 2</a></li>
-            <li><a href="https://www.youtube.com/watch?v=example3" target="_blank">Course 3</a></li>
-        </ul>
-    </nav>
-
-    <!-- About Section -->
-    <section class="about">
-        <h2>About the Course</h2>
-        <p>
-            This course provides both basic and advanced skills in web development. 
-            You will learn how to create dynamic websites using HTML and CSS, 
-            while also understanding user experience fundamentals and designing 
-            a visually appealing and user-friendly interface.
-        </p>
+    <section id="hero" class="hero">
+        <div class="hero-container">
+            <div class="hero-text">
+                <h1>أهلاً بكم في عالم <span>الهندسة الرقمية</span></h1>
+                <p>مرحباً، أنا المهندس مالك الأسطل. نهدف في مركزنا إلى تقديم تدريب هندسي وبرمجي متكامل وعالي الجودة، يجمع بين النظرية والتطبيق العملي، لنؤهلك للانطلاق بقوة في سوق العمل التقني، مع التركيز التام على معايير الدقة والاحترافية الهندسية.</p>
+                <nav><ul><li><a href="#courses" class="tab-btn active" style="padding: 15px 30px;">اكتشف دوراتنا</a></li></ul></nav>
+            </div>
+            <div class="hero-image">
+                <img src="https://i.postimg.cc/K3fMZV1V/Untitled-2.png" alt="Eng. Malek Alastal Photo">
+            </div>
+        </div>
     </section>
 
-    <!-- Image Section -->
-    <section class="image">
-        <h2>Course Image</h2>
-        <img src="https://via.placeholder.com/300" alt="Course Image">
+    <section id="courses" class="courses-section">
+        <h2 class="section-title">مساراتك التدريبية الاحترافية</h2>
+
+        <div class="tabs-container">
+            <button class="tab-btn active" onclick="openCourse(event, 'html')">دورة HTML</button>
+            <button class="tab-btn" onclick="openCourse(event, 'css')">دورة CSS</button>
+            <button class="tab-btn" onclick="openCourse(event, 'js')">دورة JS</button>
+        </div>
+
+        <div id="html" class="course-content active">
+            <div class="course-header">
+                <h3>أساسيات بناء الويب: HTML5</h3>
+                <div class="course-meta">عدد الساعات: <span>40 ساعة</span> | المستوى: <span>مبتدئ</span></div>
+            </div>
+            <div class="course-body">
+                <p>تعلم لغة هيكلة الويب القياسية HTML5 من الصفر. ستتمكن في هذه الدورة من بناء هيكلية صفحات الويب، التعامل مع النصوص، الصور، الروابط، الجداول، والنمذج الاحترافية. هذه هي الخطوة الأولى والضرورية لكل مطور ويب ناجح.</p>
+                <ul class="course-features">
+                    <li>بناء هيكل صفحة ويب كامل.</li>
+                    <li>التعامل الاحترافي مع النصوص والعناوين.</li>
+                    <li>إدراج الصور والوسائط المتعددة بفعالية.</li>
+                    <li>إنشاء جداول ونماذج تسجيل معقدة.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="css" class="course-content">
+            <div class="course-header">
+                <h3>تنسيق وتصميم الويب الاحترافي: CSS3</h3>
+                <div class="course-meta">عدد الساعات: <span>35 ساعة</span> | المستوى: <span>متوسط</span></div>
+            </div>
+            <div class="course-body">
+                <p>حول هياكل HTML الجامدة إلى واجهات مستخدم مذهلة وفخمة باستخدام CSS3. ستتعلم كيفية التحكم في الألوان، الخطوط، الخلفيات، والمسافات (Padding/Margin). والأهم، ستتقن التعامل مع Flexbox و Grid لإنشاء تصاميم متجاوبة (Responsive Design) تليق بالمهندسين.</p>
+                <ul class="course-features">
+                    <li>إضافة الألوان والخطوط الفخمة للموقع.</li>
+                    <li>التحكم الدقيق في التخطيط (Flexbox & Grid).</li>
+                    <li>إنشاء تصاميم متجاوبة مع كافة الشاشات.</li>
+                    <li>إضافة حركات (Animations) وسلاسة تفاعلية.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="js" class="course-content">
+            <div class="course-header">
+                <h3>برمجة وتفاعل الويب: JavaScript</h3>
+                <div class="course-meta">عدد الساعات: <span>45 ساعة</span> | المستوى: <span>متقدم</span></div>
+            </div>
+            <div class="course-body">
+                <p>أضف الروح والحياة لموقعك باستخدام لغة البرمجة الأكثر شهرة في العالم، JavaScript. ستتعلم أساسيات البرمجة، كيفية التلاعب بعناصر الصفحة (DOM)، التعامل مع الأحداث (Events)، وإنشاء تفاعلات معقدة وسلسة مثل التي تراها في هذا الموقع.</p>
+                <ul class="course-features">
+                    <li>أساسيات البرمجة (المتغيرات، الدوال، المصفوفات).</li>
+                    <li>التلاعب بعناصر الصفحة (DOM Manipulation).</li>
+                    <li>التعامل مع الأحداث (مثل الضغط على الأزرار).</li>
+                    <li>إنشاء تفاعلات ديناميكية وسلسة.</li>
+                </ul>
+            </div>
+        </div>
     </section>
 
-    <!-- Table Section -->
-    <section class="table">
-        <h2>Course Information</h2>
-        <table>
-            <tr>
-                <th>Course Name</th>
-                <th>Hours</th>
-                <th>Experience Level</th>
-            </tr>
-            <tr>
-                <td>HTML Basics</td>
-                <td>10</td>
-                <td>Beginner</td>
-            </tr>
-            <tr>
-                <td>CSS Styling</td>
-                <td>15</td>
-                <td>Intermediate</td>
-            </tr>
-            <tr>
-                <td>Advanced Web Design</td>
-                <td>20</td>
-                <td>Advanced</td>
-            </tr>
-        </table>
+    <section id="register" class="form-card">
+        <div class="registration-section">
+            <h3>انضم إلى نغبة المهندسين والمطورين</h3>
+            <form action="#" method="post">
+                <div class="form-group">
+                    <input type="text" name="full_name" placeholder="الاسم الكامل" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="البريد الإلكتروني المهني (@eng.xyz)" required>
+                </div>
+                <div class="form-group">
+                    <input type="number" name="age" placeholder="العمر" required min="18">
+                </div>
+                <button type="submit" class="submit-btn">إرسال طلب التحاق</button>
+            </form>
+        </div>
     </section>
 
-    <!-- Registration Form -->
-    <section class="form">
-        <h2>Register for the Course</h2>
-        <form>
-            <input type="text" name="name" placeholder="Full Name" required><br>
-            <input type="email" name="email" placeholder="Email Address" required><br>
-            <input type="number" name="studentID" placeholder="Student ID" required><br>
-            <input type="submit" value="Submit">
-        </form>
-    </section>
-
-    <!-- Footer -->
     <footer>
-        <p>Student: Malek Alastal | University ID: 120251840</p>
-        <p>&copy; UCAS</p>
+        <p>اسم الطالب: <span class="eng-title">Malek Alastal</span></p>
+        <p>الرقم الجامعي: <span class="eng-id">120251840</span></p>
+        <p>© 2024 جميع الحقوق محفوظة | قسم التدريب الهندسي - مركز المهندس مالك</p>
     </footer>
+
+    <script>
+        // دالة لفتح محتوى كورس معين وإخفاء الباقي
+        function openCourse(evt, courseName) {
+            var i, tabcontent, tablinks;
+
+            // 1. إخفاء كل محتوى الكورسات
+            tabcontent = document.getElementsByClassName("course-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+
+            // 2. إزالة فئة "active" من كل الأزرار
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+
+            // 3. إظهار محتوى الكورس المحدد، وإضافة فئة "active" للزر الذي تم الضغط عليه
+            document.getElementById(courseName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
 
 </body>
 </html>
