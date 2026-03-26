@@ -1,26 +1,24 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>Course 40 - Malek Alastal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course 40 Project - Malek Alastal</title>
     <style>
-        /* إعدادات الجسم (Body) */
         body {
-            background-color: #f0f0f0; /* لون خلفية عادي */
+            background-color: #f0f0f0;
             margin: 0;
             padding: 0;
         }
 
-        /* 1. Header: لون أزرق داكن، خلفية مميزة */
         header {
-            background-color: #00008B; /* DarkBlue - لون أزرق داكن */
-            background-image: linear-gradient(#00008B, #000050); /* خلفية مميزة عن الجسم */
+            background-color: #00008B;
+            background-image: linear-gradient(#00008B, #000050);
             color: white;
             padding: 20px;
             text-align: center;
         }
 
-        /* 2. Navigation Menu: ترتيب أفقي، Hover */
         nav {
             background-color: #333;
             padding: 10px;
@@ -32,54 +30,49 @@
             margin: 0 15px;
             font-weight: bold;
         }
-        /* تأثير الـ Hover المطلوب للبحث والتجربة */
         nav a:hover {
-            color: #ffcc00; /* يتغير اللون عند مرور الماوس */
+            color: #ffcc00;
         }
 
-        /* 3. About Section: خط Arial، لون مختلف عن العنوان */
         .about {
             padding: 20px;
             text-align: center;
         }
         .about p {
-            font-family: Arial, sans-serif; /* المطلب: خط Arial */
-            color: #444444; /* لون رمادي مختلف عن أزرق العنوان */
+            font-family: Arial, sans-serif;
+            color: #444444;
             font-size: 18px;
         }
 
-        /* 4. Image Section: عرض محدد، Border */
         .image-container {
             text-align: center;
             margin: 20px 0;
         }
         .image-container img {
-            width: 400px; /* المطلب: تحديد عرض */
-            border: 5px solid #00008B; /* المطلب: إضافة Border */
+            width: 400px;
+            border: 5px solid #00008B;
         }
 
-        /* 5. Table Section: حدود واضحة، تلوين العناوين، توسيط */
         table {
             width: 80%;
             margin: 20px auto;
-            border-collapse: collapse; /* حدود واضحة */
+            border-collapse: collapse;
         }
         table, th, td {
-            border: 2px solid black; /* حدود واضحة */
+            border: 2px solid black;
         }
         th {
-            background-color: #00008B; /* المطلب: تلوين صف العناوين */
+            background-color: #00008B;
             color: white;
             padding: 10px;
-            text-align: center; /* المطلب: توسيط النص */
+            text-align: center;
         }
         td {
             padding: 10px;
-            text-align: center; /* المطلب: توسيط النص */
+            text-align: center;
             background-color: white;
         }
 
-        /* 6. Registration Form: حقول محددة، تنسيق إجباري */
         .registration {
             width: 50%;
             margin: 30px auto;
@@ -87,17 +80,15 @@
             background-color: white;
             border: 1px solid #ccc;
         }
-        /* التنسيق الإجباري للحقول */
         input {
             width: 95%;
-            padding: 10px; /* المطلب */
-            margin: 10px 0; /* المطلب */
-            border: 1px solid #000; /* المطلب */
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #000;
         }
-        /* زر الإرسال: لون مميز ونص أبيض */
         .btn-submit {
-            background-color: #00008B; /* لون مميز */
-            color: white; /* نص أبيض */
+            background-color: #00008B;
+            color: white;
             padding: 12px;
             width: 100%;
             border: none;
@@ -105,10 +96,9 @@
             font-weight: bold;
         }
 
-        /* 7. Footer: خلفية داكنة، نص فاتح */
         footer {
-            background-color: #222; /* خلفية داكنة */
-            color: #ddd; /* نص فاتح */
+            background-color: #222;
+            color: #ddd;
             text-align: center;
             padding: 20px;
             margin-top: 30px;
@@ -118,18 +108,18 @@
 <body>
 
     <header>
-        <h1>دورة تدريب جوجل 40</h1>
+        <h1>Google Training Course 40</h1>
     </header>
 
     <nav>
-        <a href="https://youtube.com/playlist?list=PLknwEmKsW8OtLRQPTLms79499meY2D6ij" target="_blank">دورة HTML</a>
-        <a href="https://youtube.com/playlist?list=PLknwEmKsW8Os7rKViMCL8x6irVJT7McSS" target="_blank">دورة CSS</a>
-        <a href="https://youtube.com/playlist?list=PLknwEmKsW8OuTqUDaFRBiAViDZ5uI3VcE" target="_blank">دورة JS</a>
+        <a href="https://youtube.com/playlist?list=PLknwEmKsW8OtLRQPTLms79499meY2D6ij" target="_blank">HTML Course</a>
+        <a href="https://youtube.com/playlist?list=PLknwEmKsW8Os7rKViMCL8x6irVJT7McSS" target="_blank">CSS Course</a>
+        <a href="https://youtube.com/playlist?list=PLknwEmKsW8OuTqUDaFRBiAViDZ5uI3VcE" target="_blank">JS Course</a>
     </nav>
 
     <div class="about">
-        <h2>نبذة عن الدورة</h2>
-        <p>هذه الدورة مخصصة لتعلم مهارات بناء الويب المتقدمة واستخدام أدوات جوجل بشكل احترافي. نهدف من خلالها إلى تطوير مهارات المتدربين التقنية.</p>
+        <h2>About This Course</h2>
+        <p>This course is designed to learn advanced web development skills and use Google services professionally. We aim to improve technical skills for students.</p>
     </div>
 
     <div class="image-container">
@@ -139,43 +129,43 @@
     <table>
         <thead>
             <tr>
-                <th>اسم الدورة</th>
-                <th>عدد الساعات</th>
-                <th>مستوى الخبرة المطلوب</th>
+                <th>Course Name</th>
+                <th>Course Hours</th>
+                <th>Experience Level</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td>HTML</td>
-                <td>40 ساعة</td>
-                <td>مبتدئ</td>
+                <td>40 Hours</td>
+                <td>Beginner</td>
             </tr>
             <tr>
                 <td>CSS</td>
-                <td>20 ساعة</td>
-                <td>متوسط</td>
+                <td>20 Hours</td>
+                <td>Intermediate</td>
             </tr>
             <tr>
                 <td>JavaScript</td>
-                <td>30 ساعة</td>
-                <td>صعب</td>
+                <td>30 Hours</td>
+                <td>Advanced</td>
             </tr>
         </tbody>
     </table>
 
     <div class="registration">
-        <h3 style="text-align:center;">سجل بياناتك هنا</h3>
+        <h3 style="text-align:center;">Register Here</h3>
         <form>
-            <input type="text" placeholder="الاسم الكامل" required>
-            <input type="email" placeholder="البريد الإلكتروني" required>
-            <input type="number" placeholder="العمر" required>
-            <button type="submit" class="btn-submit">إرسال البيانات</button>
+            <input type="text" placeholder="Full Name" required>
+            <input type="email" placeholder="Email Address" required>
+            <input type="number" placeholder="Age" required>
+            <button type="submit" class="btn-submit">Submit Registration</button>
         </form>
     </div>
 
     <footer>
-        <p>اسم الطالب: Malek Alastal</p>
-        <p>الرقم الجامعي: 120251840</p>
+        <p>Student Name: Malek Alastal</p>
+        <p>Student ID: 120251840</p>
     </footer>
 
 </body>
