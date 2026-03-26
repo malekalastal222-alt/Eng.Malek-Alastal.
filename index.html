@@ -2,254 +2,180 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eng. Malek Alastal - Project 40</title>
+    <title>Course 40 - Malek Alastal</title>
     <style>
-        /* --- المتغيرات والتنسيق العام --- */
-        :root {
-            --dark-blue: #001a33;
-            --accent-glow: #00ccff; /* لون التوهج للأنميشن */
-            --gold: #ffcc00;
-            --white: #ffffff;
-        }
-
+        /* إعدادات الجسم (Body) */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #050a14; /* خلفية داكنة جداً لإبراز الأنميشن */
-            color: white;
+            background-color: #f0f0f0; /* لون خلفية عادي */
             margin: 0;
             padding: 0;
-            overflow-x: hidden;
         }
 
-        /* --- 1. Header (أزرق داكن، خلفية مميزة) --- */
+        /* 1. Header: لون أزرق داكن، خلفية مميزة */
         header {
-            background: linear-gradient(135deg, var(--dark-blue) 0%, #003366 100%);
-            padding: 60px 20px;
+            background-color: #00008B; /* DarkBlue - لون أزرق داكن */
+            background-image: linear-gradient(#00008B, #000050); /* خلفية مميزة عن الجسم */
+            color: white;
+            padding: 20px;
             text-align: center;
-            border-bottom: 4px solid var(--accent-glow);
-            box-shadow: 0 0 20px var(--accent-glow);
         }
-        header h1 { margin: 0; font-size: 2.5rem; animation: slideIn 1s ease-out; }
 
-        /* --- 2. Navigation (Hover Animation) --- */
+        /* 2. Navigation Menu: ترتيب أفقي، Hover */
         nav {
-            background: rgba(0, 0, 0, 0.8);
-            padding: 15px;
+            background-color: #333;
+            padding: 10px;
             text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
         }
         nav a {
             color: white;
             text-decoration: none;
-            margin: 0 20px;
+            margin: 0 15px;
             font-weight: bold;
-            transition: 0.4s;
-            padding: 5px 10px;
         }
+        /* تأثير الـ Hover المطلوب للبحث والتجربة */
         nav a:hover {
-            color: var(--accent-glow);
-            text-shadow: 0 0 10px var(--accent-glow);
-            transform: scale(1.2);
+            color: #ffcc00; /* يتغير اللون عند مرور الماوس */
         }
 
-        .container { max-width: 1000px; margin: 40px auto; padding: 20px; }
-
-        /* --- 3. About Section (Arial Font) --- */
+        /* 3. About Section: خط Arial، لون مختلف عن العنوان */
         .about {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 30px;
-            border-radius: 15px;
-            margin-bottom: 40px;
-            border-left: 5px solid var(--accent-glow);
-        }
-        .about p { font-family: Arial, sans-serif; font-size: 1.2rem; color: #ccc; }
-
-        /* --- 4. Image Section (Border & Width) --- */
-        .image-box { text-align: center; margin-bottom: 50px; }
-        .image-box img {
-            width: 500px; /* تحديد عرض */
-            border: 4px solid var(--accent-glow); /* إضافة Border */
-            border-radius: 20px;
-            filter: drop-shadow(0 0 15px var(--accent-glow));
-            transition: 0.5s;
-        }
-        .image-box img:hover { transform: rotate(2deg) scale(1.05); }
-
-        /* --- 5. Table Section (أنميشن الحواف المتوهجة) --- */
-        .table-container {
-            background: rgba(255, 255, 255, 0.02);
             padding: 20px;
-            border-radius: 15px;
-            position: relative;
-            overflow: hidden;
-            border: 2px solid transparent;
-            transition: 0.5s;
+            text-align: center;
         }
-        /* أنميشن الحواف عند المرور على الجدول */
-        .table-container:hover {
-            border-color: var(--accent-glow);
-            box-shadow: 0 0 30px rgba(0, 204, 255, 0.3);
+        .about p {
+            font-family: Arial, sans-serif; /* المطلب: خط Arial */
+            color: #444444; /* لون رمادي مختلف عن أزرق العنوان */
+            font-size: 18px;
         }
 
+        /* 4. Image Section: عرض محدد، Border */
+        .image-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .image-container img {
+            width: 400px; /* المطلب: تحديد عرض */
+            border: 5px solid #00008B; /* المطلب: إضافة Border */
+        }
+
+        /* 5. Table Section: حدود واضحة، تلوين العناوين، توسيط */
         table {
-            width: 100%;
+            width: 80%;
+            margin: 20px auto;
             border-collapse: collapse; /* حدود واضحة */
+        }
+        table, th, td {
+            border: 2px solid black; /* حدود واضحة */
+        }
+        th {
+            background-color: #00008B; /* المطلب: تلوين صف العناوين */
             color: white;
+            padding: 10px;
+            text-align: center; /* المطلب: توسيط النص */
         }
-        table th, table td {
-            border: 1px solid rgba(255, 255, 255, 0.1); /* حدود واضحة */
+        td {
+            padding: 10px;
+            text-align: center; /* المطلب: توسيط النص */
+            background-color: white;
+        }
+
+        /* 6. Registration Form: حقول محددة، تنسيق إجباري */
+        .registration {
+            width: 50%;
+            margin: 30px auto;
             padding: 20px;
-            text-align: center; /* توسيط النص */
+            background-color: white;
+            border: 1px solid #ccc;
         }
-        table th {
-            background-color: var(--dark-blue); /* تلوين العناوين */
-            color: var(--accent-glow);
-            font-size: 1.2rem;
-        }
-        table tr:hover { background: rgba(255, 255, 255, 0.05); }
-
-        /* --- 6. Registration Form (أنميشن قوي وتنسيق إجباري) --- */
-        .form-card {
-            background: #0a1428;
-            padding: 40px;
-            border-radius: 20px;
-            margin-top: 50px;
-            border: 1px solid #1a3366;
-            position: relative;
-            transition: 0.5s;
-        }
-        .form-card:hover {
-            box-shadow: 0 0 40px rgba(0, 204, 255, 0.2);
-            border-color: var(--accent-glow);
-        }
-
         /* التنسيق الإجباري للحقول */
         input {
-            width: 100%;
-            padding: 15px; /* المطلب */
-            margin: 15px 0; /* المطلب */
-            border: 1px solid #1a3366; /* المطلب */
-            background: #050a14;
-            color: white;
-            border-radius: 8px;
-            box-sizing: border-box;
-            transition: 0.3s;
+            width: 95%;
+            padding: 10px; /* المطلب */
+            margin: 10px 0; /* المطلب */
+            border: 1px solid #000; /* المطلب */
         }
-        input:focus {
-            border-color: var(--accent-glow);
-            box-shadow: 0 0 10px var(--accent-glow);
-            outline: none;
-        }
-
-        /* زر الإرسال (لون مميز ونص أبيض) */
-        .submit-btn {
-            background: linear-gradient(90deg, #0066ff, #00ccff); /* لون مميز */
+        /* زر الإرسال: لون مميز ونص أبيض */
+        .btn-submit {
+            background-color: #00008B; /* لون مميز */
             color: white; /* نص أبيض */
-            padding: 18px;
-            border: none;
-            border-radius: 8px;
+            padding: 12px;
             width: 100%;
-            font-weight: bold;
-            font-size: 1.2rem;
+            border: none;
             cursor: pointer;
-            transition: 0.5s;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        .submit-btn:hover {
-            letter-spacing: 4px;
-            box-shadow: 0 0 20px var(--accent-glow);
+            font-weight: bold;
         }
 
-        /* --- 7. Footer (داكن، فاتح، اسم ورقم) --- */
+        /* 7. Footer: خلفية داكنة، نص فاتح */
         footer {
-            background-color: #000; /* خلفية داكنة */
-            color: #888; /* نص فاتح */
+            background-color: #222; /* خلفية داكنة */
+            color: #ddd; /* نص فاتح */
             text-align: center;
-            padding: 60px 20px;
-            margin-top: 80px;
-            border-top: 2px solid #1a3366;
-        }
-        footer b { color: var(--accent-glow); }
-
-        /* الأنميشن الرئيسي */
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateY(-50px); }
-            to { opacity: 1; transform: translateY(0); }
+            padding: 20px;
+            margin-top: 30px;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Engineering Training Course 40</h1>
+        <h1>دورة تدريب جوجل 40</h1>
     </header>
 
     <nav>
-        <a href="https://youtube.com/playlist?list=PLknwEmKsW8OtLRQPTLms79499meY2D6ij" target="_blank">HTML5 Course</a>
-        <a href="https://youtube.com/playlist?list=PLknwEmKsW8Os7rKViMCL8x6irVJT7McSS" target="_blank">CSS3 Course</a>
-        <a href="https://youtube.com/playlist?list=PLknwEmKsW8OuTqUDaFRBiAViDZ5uI3VcE" target="_blank">JS Course</a>
+        <a href="https://youtube.com/playlist?list=PLknwEmKsW8OtLRQPTLms79499meY2D6ij" target="_blank">دورة HTML</a>
+        <a href="https://youtube.com/playlist?list=PLknwEmKsW8Os7rKViMCL8x6irVJT7McSS" target="_blank">دورة CSS</a>
+        <a href="https://youtube.com/playlist?list=PLknwEmKsW8OuTqUDaFRBiAViDZ5uI3VcE" target="_blank">دورة JS</a>
     </nav>
 
-    <div class="container">
+    <div class="about">
+        <h2>نبذة عن الدورة</h2>
+        <p>هذه الدورة مخصصة لتعلم مهارات بناء الويب المتقدمة واستخدام أدوات جوجل بشكل احترافي. نهدف من خلالها إلى تطوير مهارات المتدربين التقنية.</p>
+    </div>
 
-        <section class="about">
-            <h2>نبذة هندسية</h2>
-            <p>مرحباً بكم في أكاديمية المهندس مالك. نحن هنا لنصنع المستقبل الرقمي من خلال دورات احترافية تجمع بين دقة الهندسة وإبداع البرمجة. هذا المشروع يمثل دمجاً متكاملاً لخدمات جوجل مع تقنيات الويب الحديثة.</p>
-        </section>
+    <div class="image-container">
+        <img src="https://i.postimg.cc/K3fMZV1V/Untitled-2.png" alt="Malek Photo">
+    </div>
 
-        <section class="image-box">
-            <img src="https://i.postimg.cc/K3fMZV1V/Untitled-2.png" alt="Malek Alastal">
-        </section>
+    <table>
+        <thead>
+            <tr>
+                <th>اسم الدورة</th>
+                <th>عدد الساعات</th>
+                <th>مستوى الخبرة المطلوب</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>HTML & CSS 기초</td>
+                <td>40 ساعة</td>
+                <td>مبتدئ</td>
+            </tr>
+            <tr>
+                <td>Google Workspace</td>
+                <td>20 ساعة</td>
+                <td>مبتدئ</td>
+            </tr>
+            <tr>
+                <td>JavaScript Basics</td>
+                <td>30 ساعة</td>
+                <td>متوسط</td>
+            </tr>
+        </tbody>
+    </table>
 
-        <section class="table-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>اسم الدورة</th>
-                        <th>عدد الساعات</th>
-                        <th>مستوى الخبرة المطلوب</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>HTML5 Advanced Structure</td>
-                        <td>40 ساعة</td>
-                        <td>Beginner</td>
-                    </tr>
-                    <tr>
-                        <td>Modern CSS & Animations</td>
-                        <td>35 ساعة</td>
-                        <td>Intermediate</td>
-                    </tr>
-                    <tr>
-                        <td>Full-Stack Web Engineering</td>
-                        <td>60 ساعة</td>
-                        <td>Advanced</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-
-        <section class="form-card">
-            <h3>انضم إلى فريق النخبة</h3>
-            <form>
-                <input type="text" placeholder=" الاسم الكامل "required>
-                <input type="email" placeholder="البريد الإلكتروني الرسمي" required>
-                <input type="number" placeholder="العمر" required>
-                <button type="submit" class="submit-btn">تأكيد التسجيل الآن</button>
-            </form>
-        </section>
-
+    <div class="registration">
+        <h3 style="text-align:center;">سجل بياناتك هنا</h3>
+        <form>
+            <input type="text" placeholder="الاسم الكامل" required>
+            <input type="email" placeholder="البريد الإلكتروني" required>
+            <input type="number" placeholder="العمر" required>
+            <button type="submit" class="btn-submit">إرسال البيانات</button>
+        </form>
     </div>
 
     <footer>
-        <p>اسم الطالب: <b>Malek Alastal</b></p>
-        <p>الرقم الجامعي: <b>120251840</b></p>
-        <p>© 2024 جميع الحقوق محفوظة | تصميم هندسي متقدم</p>
+        <p>اسم الطالب: Malek Alastal</p>
+        <p>الرقم الجامعي: 120251840</p>
     </footer>
 
 </body>
