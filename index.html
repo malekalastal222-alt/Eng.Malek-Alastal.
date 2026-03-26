@@ -3,276 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مشروع دورة جوجل المتميز</title>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700&display=swap" rel="stylesheet">
+    <title>Training Course 40 - Malek Alastal</title>
     <style>
         :root {
-            --primary-color: #002147;
-            --secondary-color: #ffcc00;
-            --accent-color: #4285F4; /* لون جوجل الأزرق */
-            --bg-light: #f8f9fa;
-            --text-dark: #2c3e50;
+            --primary: #002147; 
+            --accent: #ffcc00;
+            --bg: #f8f9fa;
         }
 
         body {
-            font-family: 'Tajawal', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-            line-height: 1.6;
+            background-color: var(--bg);
+            color: #333;
         }
 
-        /* Header بتصميم عصري */
+        /* Header */
         header {
-            background: linear-gradient(135deg, var(--primary-color) 0%, #003a7d 100%);
+            background: linear-gradient(45deg, var(--primary), #004a99);
             color: white;
-            padding: 60px 20px;
+            padding: 50px 20px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            position: relative;
+            border-bottom: 6px solid var(--accent);
         }
 
-        header h1 {
-            font-size: 2.5rem;
-            margin: 0;
-            letter-spacing: 1px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        /* Navigation فخم */
+        /* Navigation Menu - المطلوب: ترتيب أفقي، Hover، 3 روابط */
         nav {
-            background: white;
+            background: #1a1a1a;
             padding: 15px;
             text-align: center;
             position: sticky;
             top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 100;
         }
-
         nav a {
-            color: var(--primary-color);
-            margin: 0 20px;
+            color: white;
             text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-            padding-bottom: 5px;
+            margin: 0 20px;
+            font-weight: bold;
+            transition: 0.3s; /* تأثير النعومة عند المرور */
+            display: inline-block;
         }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            right: 0;
-            background-color: var(--secondary-color);
-            transition: width 0.3s ease;
-        }
-
         nav a:hover {
-            color: var(--accent-color);
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        /* Containers */
-        .container {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 20px;
-        }
-
-        .card {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            margin-bottom: 40px;
-            border-top: 5px solid var(--secondary-color);
+            color: var(--accent); /* تغيير اللون عند المرور */
+            transform: scale(1.1);
         }
 
         /* About Section */
-        .about h2 {
-            color: var(--primary-color);
-            border-right: 5px solid var(--accent-color);
-            padding-right: 15px;
+        .container { max-width: 900px; margin: auto; padding: 20px; }
+        .about { 
+            background: white; 
+            padding: 30px; 
+            border-radius: 15px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-top: -30px;
         }
+        .about h2 { color: var(--primary); border-right: 5px solid var(--accent); padding-right: 15px; }
+        .about p { font-family: 'Arial'; line-height: 1.8; }
 
         /* Image Section */
-        .img-container img {
+        .img-box { text-align: center; margin: 30px 0; }
+        .img-box img {
             width: 100%;
-            max-width: 600px;
-            border-radius: 20px;
-            transition: transform 0.5s ease;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            max-width: 500px;
+            border: 5px solid white;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
-        .img-container img:hover {
-            transform: scale(1.03);
-        }
-
-        /* Table */
+        /* Table Section */
         table {
             width: 100%;
             border-collapse: collapse;
-            overflow: hidden;
-            border-radius: 10px;
-        }
-
-        th {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 15px;
-            font-weight: 500;
-        }
-
-        td {
-            padding: 15px;
-            border-bottom: 1px solid #eee;
+            margin: 30px 0;
             background: white;
         }
-
-        tr:hover td {
-            background-color: #f1f8ff;
-        }
-
-        /* Form */
-        .reg-form input {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            box-sizing: border-box; /* لضمان عدم خروج الإدخال عن الحاوية */
-            transition: border 0.3s;
-        }
-
-        .reg-form input:focus {
-            outline: none;
-            border-color: var(--accent-color);
-            box-shadow: 0 0 8px rgba(66, 133, 244, 0.2);
-        }
-
-        button {
-            background: linear-gradient(to left, var(--primary-color), var(--accent-color));
+        table th {
+            background: var(--primary);
             color: white;
-            padding: 15px 40px;
+            padding: 15px;
+        }
+        table td {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        table tr:nth-child(even) { background: #f2f2f2; }
+
+        /* Registration Form - التنسيق الإجباري (padding, margin, border) */
+        .form-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        input {
+            width: 100%;
+            padding: 12px; /* المطلوب */
+            margin: 10px 0; /* المطلوب */
+            border: 1px solid #ccc; /* المطلوب */
+            border-radius: 5px;
+            display: block;
+            box-sizing: border-box;
+        }
+        button {
+            background: var(--primary); /* لون مميز */
+            color: white; /* نص أبيض */
+            width: 100%;
+            padding: 15px;
             border: none;
-            border-radius: 30px;
-            font-size: 1.1rem;
+            border-radius: 5px;
             font-weight: bold;
             cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            width: 100%;
-            margin-top: 10px;
+            transition: 0.3s;
         }
-
-        button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
+        button:hover { background: #003366; }
 
         /* Footer */
         footer {
-            background: #1a1a1a;
-            color: #bbb;
+            background: #111;
+            color: #eee;
             text-align: center;
-            padding: 40px 20px;
+            padding: 40px;
             margin-top: 50px;
-        }
-
-        footer strong {
-            color: white;
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .animate {
-            animation: fadeInUp 0.8s ease forwards;
         }
     </style>
 </head>
 <body>
 
-<header>
-    <div class="animate">
-        <h1>أكاديمية مهارات جوجل المتقدمة</h1>
-        <p>بوابتك لاحتراف التقنية الحديثة</p>
-    </div>
-</header>
+    <header>
+        <h1>دورة تدريب جوجل 40</h1>
+    </header>
 
-<nav>
-    <a href="#">الرئيسية</a>
-    <a href="https://youtube.com/1">دورة HTML</a>
-    <a href="https://youtube.com/2">دورة CSS</a>
-    <a href="https://youtube.com/3">دورة JS</a>
-</nav>
+    <nav>
+        <a href="https://youtube.com/playlist?list=PLknwEmKsW8OtLRQPTLms79499meY2D6ij&si=8s5UsVHwZ-GwUBnq" target="_blank">دورة HTML</a>
+        <a href="https://youtube.com/playlist?list=PLknwEmKsW8Os7rKViMCL8x6irVJT7McSS&si=QWCFhG0Q74425z9j" target="_blank">دورة CSS</a>
+        <a href="https://youtube.com/playlist?list=PLknwEmKsW8OuTqUDaFRBiAViDZ5uI3VcE&si=hbXDLQybHzScxVsR" target="_blank">دورة JS</a>
+    </nav>
 
-<div class="container">
-    
-    <section class="card about animate">
-        <h2>عن الدورة</h2>
-        <p>انضم إلينا في رحلة تعليمية فريدة مصممة لتنقلك من الصفر إلى الاحتراف في أدوات جوجل البرمجية. نركز على التطبيق العملي وبناء مشاريع حقيقية تخدم سوق العمل.</p>
-    </section>
+    <div class="container">
+        <section class="about">
+            <h2>عن الدورة التعريفية</h2>
+            <p>مرحباً بكم في دورة Google Services، حيث نركز على تمكين الطلاب من مهارات العصر الرقمي وبناء صفحات ويب متكاملة باستخدام HTML و CSS بأعلى المعايير التقنية.</p>
+        </section>
 
-    <div class="img-container animate" style="text-align: center; margin-bottom: 40px;">
-        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Learning">
-    </div>
+        <div class="img-box">
+            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80" alt="Web Training">
+        </div>
 
-    <section class="card animate">
-        <h2>تفاصيل المنهج</h2>
         <table>
             <thead>
                 <tr>
                     <th>اسم الدورة</th>
                     <th>عدد الساعات</th>
-                    <th>المستوى</th>
+                    <th>مستوى الخبرة المطلوبة</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>Google Cloud Tools</td>
-                    <td>30 ساعة</td>
-                    <td><span style="color: #27ae60; font-weight: bold;">Advanced</span></td>
-                </tr>
-                <tr>
-                    <td>Web Development</td>
-                    <td>45 ساعة</td>
-                    <td><span style="color: #f39c12; font-weight: bold;">Intermediate</span></td>
+                    <td>Google Web Development</td>
+                    <td>40 ساعة</td>
+                    <td>Intermediate</td>
                 </tr>
             </tbody>
         </table>
-    </section>
 
-    <section class="card reg-form animate">
-        <h2 style="text-align: center;">سجل بياناتك الآن</h2>
-        <p style="text-align: center; color: #666;">سنتواصل معك فور بدء الدورة القادمة</p>
-        <form>
-            <input type="text" placeholder="الاسم الكامل" required>
-            <input type="email" placeholder="البريد الإلكتروني" required>
-            <input type="number" placeholder="العمر">
-            <button type="submit">تأكيد التسجيل</button>
-        </form>
-    </section>
+        <div class="form-card">
+            <h3>سجل بياناتك للالتحاق</h3>
+            <form>
+                <input type="text" placeholder="الاسم الكامل" required>
+                <input type="email" placeholder="البريد الإلكتروني" required>
+                <input type="number" placeholder="العمر" required>
+                <button type="submit">إرسال طلب التسجيل</button>
+            </form>
+        </div>
+    </div>
 
-</div>
-
-<footer>
-    <p><strong>تم التطوير بواسطة:</strong> [اسمك الثلاثي]</p>
-    <p><strong>الرقم الجامعي:</strong> [20240001]</p>
-    <p style="font-size: 0.8rem; margin-top: 20px;">© 2026 جميع الحقوق محفوظة لمشروع التخرج</p>
-</footer>
+    <footer>
+        <p>اسم الطالب: <strong>Malek Alastal</strong></p>
+        <p>الرقم الجامعي: <strong>120251840</strong></p>
+        <p>© 2024 جميع الحقوق محفوظة لشركة التدريب</p>
+    </footer>
 
 </body>
 </html>
