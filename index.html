@@ -1,66 +1,131 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>Course 40</title>
+    <title>course40.html</title>
     <style>
-        body { font-family: Arial; background: #f0f2f5; margin:0; }
-        header { background:#0b3d91; color:white; text-align:center; padding:20px; }
-        nav { background:#1e3c72; display:flex; justify-content:center; padding:10px; }
-        nav a { color:white; margin:0 10px; text-decoration:none; }
-        nav a:hover { color:#ffcc00; }
-        #about { padding:20px; text-align:center; color:#333; }
-        #image-section { text-align:center; margin:20px; }
-        #image-section img { width:300px; border:3px solid #0b3d91; border-radius:5px; }
-        table { width:80%; margin:20px auto; border-collapse: collapse; }
-        th, td { border:2px solid #0b3d91; padding:8px; text-align:center; }
-        th { background:#0b3d91; color:white; }
-        #registration { width:50%; margin:20px auto; padding:20px; border:2px solid #0b3d91; border-radius:5px; background:white; }
-        #registration input { width:100%; padding:8px; margin:5px 0; border:2px solid #0b3d91; border-radius:3px; }
-        #registration input[type="submit"] { background:#0b3d91; color:white; cursor:pointer; }
-        #registration input[type="submit"]:hover { background:#ffcc00; color:black; }
-        footer { background:#0b3d91; color:white; text-align:center; padding:10px; }
+        /* CSS التنسيق */
+        body { margin: 0; background-color: #f4f4f4; }
+
+        /* 1. Header: أزرق داكن وخلفية مميزة */
+        header { 
+            background-color: #002147; 
+            color: white; 
+            padding: 20px; 
+            text-align: center;
+            border-bottom: 8px solid #3498db; /* خلفية مميزة */
+        }
+
+        /* 2. Navigation Menu: قائمة أفقية وتأثير Hover */
+        nav { background: #333; padding: 10px; text-align: center; }
+        nav a { 
+            color: white; 
+            margin: 0 15px; 
+            text-decoration: none; 
+            display: inline-block; 
+        }
+        nav a:hover { color: #3498db; } /* تغيير اللون عند المرور */
+
+        /* 3. About Section: خط Arial ولون مختلف */
+        .about { 
+            padding: 20px; 
+            font-family: Arial, sans-serif; 
+            color: #2c3e50; 
+        }
+
+        /* 4. Image Section: عرض محدد وإطار */
+        .image-sec img { 
+            width: 300px; 
+            border: 5px solid #002147; 
+            margin: 10px;
+        }
+
+        /* 5. Table Section: حدود، تلوين العناوين، توسيط */
+        table { 
+            width: 90%; 
+            margin: 20px auto; 
+            border-collapse: collapse; 
+            text-align: center; 
+        }
+        table, th, td { border: 2px solid black; } /* حدود واضحة */
+        th { background-color: #3498db; color: white; } /* تلوين صف العناوين */
+        td, th { padding: 10px; }
+
+        /* 6. Registration Form: التنسيق الإجباري */
+        .form-sec { padding: 20px; background: white; margin: 20px; border-radius: 10px; }
+        input { 
+            padding: 10px; /* padding */
+            margin: 5px;   /* margin */
+            border: 1px solid #ccc; /* border */
+            width: 250px;
+            display: block;
+        }
+        .btn-submit { 
+            background-color: #e67e22; /* لون خلفية مميز */
+            color: white; /* نص أبيض */
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* 7. Footer: خلفية داكنة ونص فاتح */
+        footer { 
+            background-color: #1a1a1a; 
+            color: #ecf0f1; 
+            text-align: center; 
+            padding: 15px; 
+            margin-top: 20px; 
+        }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Course XX</h1>
-</header>
+    <header>
+        <h1>دورة التدريب البرمجية - 40</h1>
+    </header>
 
-<nav>
-    <a href="#">Course 1</a>
-    <a href="#">Course 2</a>
-    <a href="#">Course 3</a>
-</nav>
+    <nav>
+        <a href="https://youtube.com/link1">دورة HTML</a>
+        <a href="https://youtube.com/link2">دورة CSS</a>
+        <a href="https://youtube.com/link3">دورة Sheets</a>
+    </nav>
 
-<section id="about">
-    <p>Welcome to Course XX! Learn new skills and improve your knowledge.</p>
-</section>
+    <section class="about">
+        <h2>عن الدورة</h2>
+        <p>هذه الدورة مخصصة لتعليم الطلاب مهارات الويب وإدارة البيانات باستخدام أدوات جوجل الحديثة.</p>
+    </section>
 
-<section id="image-section">
-    <img src="https://via.placeholder.com/300x200.png?text=Course+Image" alt="Course Image">
-</section>
+    <section class="image-sec">
+        <img src="https://via.placeholder.com/300" alt="صورة توضيحية">
+    </section>
 
-<table>
-    <tr><th>Course Name</th><th>Hours</th><th>Level</th></tr>
-    <tr><td>Course 1</td><td>20</td><td>Beginner</td></tr>
-    <tr><td>Course 2</td><td>30</td><td>Intermediate</td></tr>
-    <tr><td>Course 3</td><td>40</td><td>Advanced</td></tr>
-</table>
+    <table>
+        <tr>
+            <th>اسم الدورة</th>
+            <th>عدد الساعات</th>
+            <th>مستوى الخبرة المطلوب</th>
+        </tr>
+        <tr>
+            <td>تطوير الويب</td>
+            <td>40 ساعة</td>
+            <td>مبتدئ</td>
+        </tr>
+    </table>
 
-<section id="registration">
-    <form>
-        <input type="text" placeholder="Full Name" required>
-        <input type="email" placeholder="Email" required>
-        <input type="number" placeholder="Age" required>
-        <input type="submit" value="Register">
-    </form>
-</section>
+    <section class="form-sec">
+        <h3>نموذج التسجيل</h3>
+        <form>
+            <input type="text" placeholder="الاسم الكامل">
+            <input type="email" placeholder="البريد الإلكتروني">
+            <input type="number" placeholder="العمر">
+            <button type="submit" class="btn-submit">إرسال</button>
+        </form>
+    </section>
 
-<footer>
-    <p>Malek Alastal | 120251840</p>
-</footer>
+    <footer>
+        <p>اسم الطالب: [ضع اسمك هنا]</p>
+        <p>الرقم الجامعي: [ضع رقمك هنا]</p>
+    </footer>
 
 </body>
 </html>
